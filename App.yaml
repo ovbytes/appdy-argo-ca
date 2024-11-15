@@ -4,19 +4,19 @@ metadata:
   name: appdynamics-cluster-agent
   namespace: argocd
 spec:
-  project: default
+  destination:
+    server: 'https://kubernetes.default.svc'  # El clúster de destino
+    namespace: appdynamics  # El namespace donde quieres desplegar
+  project: default  # El proyecto de ArgoCD (puedes ajustar según sea necesario)
   source:
-    repoURL: 'https://github.com/ovbytes/appdy-argo-ca'  
-    targetRevision: main
-    path: '.'  
+    repoURL: https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts  # URL del repositorio de Helm
+    targetRevision: latest  # Puede ser "latest" o una versión específica del chart
+    chart: cluster-agent  # Nombre del chart en el repositorio
     helm:
       valueFiles:
-        - values.yaml
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: appdynamics
+        - values.yaml  # El archivo de valores que contiene la configuración personalizada
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: true  # Permite eliminar recursos obsoletos
+      selfHeal: true  # Hace que ArgoCD mantenga los recursos sincronizados automáticamente
 
