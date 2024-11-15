@@ -10,7 +10,7 @@ spec:
   project: default  # El proyecto de ArgoCD (puedes ajustar según sea necesario)
   source:
     repoURL: https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts  # URL del repositorio de Helm
-    targetRevision: latest  # Puede ser "latest" o una versión específica del chart
+    targetRevision: 1.26.801  # Puede ser "latest" o una versión específica del chart
     chart: cluster-agent  # Nombre del chart en el repositorio
     helm:
       valueFiles:
