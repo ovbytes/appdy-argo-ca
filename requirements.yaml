@@ -1,0 +1,3 @@
+dependencies:
+- name: clusteragent
+  repository: https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/
