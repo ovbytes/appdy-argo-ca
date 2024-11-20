@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clusteragent-helm
+  namespace: omvelazq
+spec:
+  source:
+    path: "."
+    repoURL: https://github.com/ovbytes/appdy-argo-ca.git
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: acdt
+  project: default

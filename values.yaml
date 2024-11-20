@@ -1,19 +1,19 @@
 clusteragent:
-# Activa la instalación del Cluster Agent
+  # Activa la instalación del Cluster Agent
   installClusterAgent: true
 
-# Configuración del controlador de AppDynamics (utilizando el Secret)
+  # Configuración del controlador de AppDynamics (utilizando el Secret)
   controllerInfo:
     secretName: appdynamics-credentials  # Nombre del Secret en Kubernetes
     url: "controller-url"
     accountKey: "controller-account"      # Nombre de la clave para el campo account
     accessKeyKey: "controller-access-key" # Nombre de la clave para el campo accessKey
 
-# Configuración del agente del clúster
+  # Configuración del agente del clúster
   clusterAgent:
     nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
 
-# Otras configuraciones de instalación (como metrics-server)
-  install:
-    metrics-server: true
+  # Otras configuraciones de instalación (como metrics-server)
+  #install:
+  #  metrics-server: true
 
