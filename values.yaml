@@ -4,17 +4,17 @@ cluster-agent:
 
   # Configuración del controlador de AppDynamics (utilizando el Secret)
   controllerInfo:
-    url: 
+    url:
       secretKeyRef:
-        name: controller-secrets
+        name: {{ .Values.controllerSecrets.secretName }}
         key: url
-    account: 
+    account:
       secretKeyRef:
-        name: controller-secrets
+        name: {{ .Values.controllerSecrets.secretName }}
         key: account
-    accessKey: 
+    accessKey:
       secretKeyRef:
-        name: controller-secrets
+        name: {{ .Values.controllerSecrets.secretName }}
         key: accessKey
 
   # Configuración del agente del clúster
@@ -25,3 +25,5 @@ cluster-agent:
   #install:
   #  metrics-server: true
 
+  controllerSecrets:
+    secretName: controller-secrets

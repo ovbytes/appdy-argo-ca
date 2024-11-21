@@ -9,5 +9,5 @@ spec:
     repoURL: https://github.com/ovbytes/appdy-argo-ca.git
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: acdt 
+    namespace: omvelazq 
   project: default
