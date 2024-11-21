@@ -8,5 +8,3 @@ cluster-agent:
 
   clusterAgent:
     nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
-  serviceAccountName: appdynamics-cluster-agent  # Nombre del ServiceAccount
-  secretName: cluster-agent-secret  # Nombre del Secret
