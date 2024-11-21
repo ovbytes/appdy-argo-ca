@@ -1,0 +1,27 @@
+cluster-agent:
+  # Activa la instalación del Cluster Agent
+  installClusterAgent: true
+
+  # Configuración del controlador de AppDynamics (utilizando el Secret)
+  controllerInfo:
+    url: 
+      secretKeyRef:
+        name: controller-secrets
+        key: url
+    account: 
+      secretKeyRef:
+        name: controller-secrets
+        key: account
+    accessKey: 
+      secretKeyRef:
+        name: controller-secrets
+        key: accessKey
+
+  # Configuración del agente del clúster
+  clusterAgent:
+    nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
+
+  # Otras configuraciones de instalación (como metrics-server)
+  #install:
+  #  metrics-server: true
+
