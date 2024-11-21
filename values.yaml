@@ -2,7 +2,7 @@ cluster-agent:
   installClusterAgent: true
 
   controllerInfo:
-    url: "secret://controller-secrets:url"
+    url: https://ces-controller.saas.appdynamics.com:443
     account: "secret://controller-secrets:account"
     accessKey: "secret://controller-secrets:accessKey"
 
