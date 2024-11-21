@@ -1,14 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clusteragent-helm
-  namespace: acdt 
+  name: cluster-agent
+  namespace: acdt
 spec:
-  source:
-    path: "."
-    repoURL: https://github.com/ovbytes/appdy-argo-ca.git
-      # O cualquier otro archivo values.yaml relevante en el repositorio
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: omvelazq 
   project: default
+  source:
+    repoURL: 'https://github.com/ovbytes/appdy-argo-ca.git'
+    targetRevision: HEAD
+    path: "."
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: omvelazq
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
