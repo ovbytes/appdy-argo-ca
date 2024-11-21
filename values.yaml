@@ -2,6 +2,20 @@ cluster-agent:
   # Activa la instalación del Cluster Agent
   installClusterAgent: true
 
+  controllerInfo:
+    url:
+      secretKeyRef:
+        name: controller-secrets
+        key: url
+    account:
+      secretKeyRef:
+        name: controller-secrets
+        key: account
+    accessKey:
+      secretKeyRef:
+        name: controller-secrets
+        key: accessKey
+
   # Configuración del agente del clúster
   clusterAgent:
     nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
