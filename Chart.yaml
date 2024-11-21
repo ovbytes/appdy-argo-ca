@@ -1,1 +1,8 @@
-name: clusteragent
+apiVersion: v2
+name: cluster-agent-helm
+version: 0.1.0
+dependencies:
+  - name: cluster-agent
+    repository: https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/
+    version: 1.21.362
+
