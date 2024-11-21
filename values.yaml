@@ -1,25 +1,17 @@
 cluster-agent:
-  # Activa la instalación del Cluster Agent
   installClusterAgent: true
 
   controllerInfo:
-    url:
-      secretKeyRef:
-        name: controller-secrets
-        key: url
-    account:
-      secretKeyRef:
-        name: controller-secrets
-        key: account
-    accessKey:
-      secretKeyRef:
-        name: controller-secrets
-        key: accessKey
+    url: "{{ .Values.controllerInfo.url }}"
+    account: "{{ .Values.controllerInfo.account }}"
+    accessKey: "{{ .Values.controllerInfo.accessKey }}"
 
-  # Configuración del agente del clúster
   clusterAgent:
     nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
 
-  # Otras configuraciones de instalación (como metrics-server)
-  #install:
-  #  metrics-server: true
+# Valores de los secretos que ArgoCD utilizará para inyectarlos en el chart
+controllerInfo:
+  url: "secret://controller-secrets:url"
+  account: "secret://controller-secrets:account"
+  accessKey: "secret://controller-secrets:accessKey"
+
