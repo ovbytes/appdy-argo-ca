@@ -2,16 +2,9 @@ cluster-agent:
   installClusterAgent: true
 
   controllerInfo:
-    url: "{{ .Values.controllerInfo.url }}"
-    account: "{{ .Values.controllerInfo.account }}"
-    accessKey: "{{ .Values.controllerInfo.accessKey }}"
+    url: "secret://controller-secrets:url"
+    account: "secret://controller-secrets:account"
+    accessKey: "secret://controller-secrets:accessKey"
 
   clusterAgent:
     nsToMonitorRegex: .*  # Cambia esto según el namespace que deseas monitorizar
-
-# Valores de los secretos que ArgoCD utilizará para inyectarlos en el chart
-controllerInfo:
-  url: "secret://controller-secrets:url"
-  account: "secret://controller-secrets:account"
-  accessKey: "secret://controller-secrets:accessKey"
-
