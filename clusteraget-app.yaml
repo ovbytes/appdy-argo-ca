@@ -7,6 +7,24 @@ spec:
   source:
     path: "."
     repoURL: https://github.com/ovbytes/appdy-argo-ca.git
+    helm:
+      values: |
+        cluster-agent:
+          installClusterAgent: true
+          controllerInfo:
+            url:
+              secretKeyRef:
+                name: controller-secrets
+                key: url
+            account:
+              secretKeyRef:
+                name: controller-secrets
+                key: account
+            accessKey:
+              secretKeyRef:
+                name: controller-secrets
+                key: accessKey
+      # O cualquier otro archivo values.yaml relevante en el repositorio
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: omvelazq 
